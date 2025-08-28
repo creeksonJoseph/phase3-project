@@ -1,0 +1,8 @@
+# No external dependencies required
+# This project uses only Python standard library modules:
+# - sqlite3 (built-in)
+# - argparse (built-in)
+# - typing (built-in)
+# - dataclasses (built-in, Python 3.7+)
+
+# Minimum Python version: 3.7+
