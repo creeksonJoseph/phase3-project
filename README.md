@@ -12,43 +12,37 @@ A Python CLI application for managing an Arcade Hall where players can register,
 - **CRUD Operations**: Create, read, update, delete for all entities
 - **Database Migrations**: Alembic for schema management
 
-## 🏗️ Project Structure
-
-```
-project/
-├── lib/                           # Main application library
-│   ├── __init__.py               # Package initialization
-│   ├── cli.py                    # Interactive CLI interface
-│   └── db/                       # Database module
-│       ├── __init__.py           # Database package initialization
-│       ├── models.py             # SQLAlchemy ORM models
-│       ├── seed.py               # Sample data seeding with Faker
-│       └── migrations/           # Alembic migration files
-│           ├── env.py            # Migration environment
-│           └── versions/         # Migration versions
-├── cli.py                        # Main entry point
-├── Pipfile                       # Pipenv dependencies
-├── Pipfile.lock                  # Locked dependency versions
-├── alembic.ini                   # Alembic configuration
-└── README.md                     # Project documentation
-```
+# Alembic configuration
 
 ## 🚀 Installation
 
 ### Prerequisites
 
-- Python 3.7 or higher
-- No external dependencies required (uses only standard library)
+- Python 3.8 or higher
+- Pipenv for dependency management
 
 ### Setup
 
 1. Clone or download the project
 2. Navigate to the project directory
-3. The application is ready to run (no pip install needed)
+3. Install dependencies: `pipenv install`
 
-## 📖 Usage
+# Starting the Application
 
-### Starting the Application
+**Method 1: Activate virtual environment first (Recommended)**
+
+```bash
+pipenv shell
+python cli.py
+```
+
+**Method 2: Run directly with pipenv**
+
+```bash
+pipenv run python cli.py
+```
+
+**Method 3: If dependencies installed globally**
 
 ```bash
 python cli.py
@@ -66,16 +60,21 @@ Please select an option:
 1. Register a new player
 2. Record a score
 3. View leaderboard
-4. Seed sample data
+4. View all players
+5. View all games
+6. Delete a player
+7. Seed sample data
 0. Exit
 ```
 
 #### Option 1: Register a New Player
+
 - Select option `1`
 - Enter a unique username when prompted
 - System will confirm successful registration or notify if username exists
 
 #### Option 2: Record a Score
+
 - Select option `2`
 - Enter the player's username
 - Enter the game name
@@ -83,16 +82,35 @@ Please select an option:
 - System will record the score or notify if player doesn't exist
 
 #### Option 3: View Leaderboard
+
 - Select option `3`
 - Enter the game name
 - System displays top 10 scores for that game
 
-#### Option 4: Seed Sample Data
+#### Option 4: View All Players
+
 - Select option `4`
+- System displays all registered players
+
+#### Option 5: View All Games
+
+- Select option `5`
+- System displays all available games with categories
+
+#### Option 6: Delete a Player
+
+- Select option `6`
+- Enter username to delete
+- Confirm deletion (removes player and all their scores)
+
+#### Option 7: Seed Sample Data
+
+- Select option `7`
 - System populates database with sample players and scores
 - Useful for testing and demonstration
 
 #### Option 0: Exit
+
 - Select option `0` to exit the application
 
 ### Example Session
@@ -100,7 +118,7 @@ Please select an option:
 ```
 🎮 Welcome to Arcade Hall Management System! 🎮
 
-> 4  (Seed sample data)
+> 7  (Seed sample data)
 Sample data added successfully!
 
 > 1  (Register new player)
@@ -187,6 +205,7 @@ The application uses SQLite with the following schema:
 Use menu option 4 to quickly populate the database with sample data.
 
 This creates:
+
 - 5 sample players (alice, bob, charlie, diana, eve)
 - 10 sample scores across 4 different games (Pac-Man, Street Fighter, Galaga, Donkey Kong)
 - Realistic test data for development and demonstration

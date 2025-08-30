@@ -1,4 +1,3 @@
-import click
 from lib.db.models import Player, Score, Game, Base, engine
 from lib.db.seed import seed_data
 
